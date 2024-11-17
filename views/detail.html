@@ -4,8 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../static/style/cards.css">
 </head>
 <body>
-    
+    <div class="card">
+        <a href="/artist/{{.Id}}">
+            <img src="{{.Image}}" alt="{{.Name}}">
+        </a>
+        <h2>{{.Name}}</h2>
+        <p><strong>Members:</strong></p>
+        <p class="members">{{range .Members}}{{.}}, {{end}}</p>
+        <p><strong>Creation Date:</strong> {{.CreationDate}}</p>
+        <p><strong>First Album:</strong> {{.FirstAlbum}}</p>
+    </div>
 </body>
 </html>

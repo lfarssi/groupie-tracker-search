@@ -1,0 +1,42 @@
+
+nav {
+    background-color: #333; /* Dark background */
+    color: white;
+    display: flex;
+    justify-content: center; /* Center the links */
+    align-items: center;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0; /* Sticks to the top of the page on scroll */
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: white; /* White text for links */
+    text-decoration: none;
+    margin: 0 15px; /* Space between links */
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #00bcd4; /* Highlight color on hover */
+}
+
+nav a.active {
+    color: #00bcd4; /* Highlight the active page link */
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Stack links vertically on small screens */
+        padding: 15px;
+    }
+
+    nav a {
+        margin: 10px 0;
+        font-size: 1em;
+    }
+}

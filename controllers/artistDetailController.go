@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"groupie_tracker/config"
 	"groupie_tracker/models"
 	"html/template"
 	"net/http"
@@ -9,27 +8,22 @@ import (
 )
 
 func ArtistDetailController(w http.ResponseWriter, r *http.Request) {
-	
-	idStr := r.URL.Path[len(config.ArtistsAPIURL):]
-	if idStr == "" {
-		http.Error(w, "Missing artist ID", http.StatusBadRequest)
+
+	idStr := r.PathValue("id")
+	id, err := strconv.Atoi(idStr)
+	if err != nil {
+		http.Error(w, "Invalid artist ID", http.StatusBadRequest)
 		return
 	}
-	
-	id, err := strconv.Atoi(idStr)
-	if err!= nil {
-        http.Error(w,  "Invalid artist ID", http.StatusBadRequest)
-        return
-    }
 	artist, err := models.ArtistById(id)
-	if err!= nil {
-        http.Error(w,  "Failed to fetch artist: "+err.Error(), http.StatusInternalServerError)
-        return
-    }
-    res, err := template.ParseFiles("views/detail.html")
-	if err!= nil {
-        http.Error(w,  "Failed to parse template: "+err.Error(), http.StatusInternalServerError)
-        return
-    }
+	if err != nil {
+		http.Error(w, "Failed to fetch artist: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+	res, err := template.ParseFiles("views/detail.html")
+	if err != nil {
+		http.Error(w, "Failed to parse template: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
 	res.Execute(w, artist)
 }
