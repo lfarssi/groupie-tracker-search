@@ -9,7 +9,7 @@ type Artist struct {
     FirstAlbum   string   `json:"firstAlbum"`
 	Locations    string   `json:"locations"`     
     ConcertDates string   `json:"concertDates"`  
-    Relations    string   `json:"relations"`
+    Relations    map[string][]string   `json:"relations"`
 }
 
 
