@@ -12,13 +12,13 @@ func LocationController(w http.ResponseWriter, r *http.Request){
         http.Error(w, err.Error(), http.StatusInternalServerError)
         return
     }
-	res, err := template.ParseFiles("views/locations.html")
+	res, err := template.ParseFiles("views/location.html")
 	if err!= nil {
         http.Error(w, err.Error(), http.StatusInternalServerError)
         return
     }
-	err = res.Execute(w, locations)
-	if err!= nil {
+	
+	if err = res.Execute(w, locations) ; err!= nil {
         http.Error(w, err.Error(), http.StatusInternalServerError)
         return
     }

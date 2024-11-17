@@ -3,18 +3,13 @@ package models
 import (
 	"encoding/json"
 	"groupie_tracker/config"
+	"groupie_tracker/db"
 	"net/http"
 )
 
 
-type Location struct {
-	Id int `json:"id"`
-	Locations []string `json:"locations"`
-
-}
-
-func GetLocations() ([]Location, error) {
-	var locations []Location
+func GetLocations() ([]string, error) {
+	var locations db.Location
 	response, err:= http.Get(config.LocationsAPIURL)
 	if err != nil {
 		return nil, err
@@ -23,5 +18,5 @@ func GetLocations() ([]Location, error) {
 	if err := json.NewDecoder(response.Body).Decode(&locations) ; err != nil {
 		return nil, err
 	}
-	return locations, nil
+	return locations.Locations, nil
 }

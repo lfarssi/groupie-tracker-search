@@ -104,7 +104,9 @@
     <div class="container">
         {{range .}}
         <div class="card">
-            <img src="{{.Image}}" alt="{{.Name}}">
+            <a href="/artist">
+                <img src="{{.Image}}" alt="{{.Name}}">
+            </a>
             <h2>{{.Name}}</h2>
             <p><strong>Members:</strong></p>
             <p class="members">{{range .Members}}{{.}}, {{end}}</p>
