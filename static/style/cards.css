@@ -44,3 +44,6 @@ body {
     font-size: 0.9em;
     color: #666;
 }
+.card a {
+    text-decoration: none;
+}

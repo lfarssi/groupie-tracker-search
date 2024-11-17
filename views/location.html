@@ -7,10 +7,12 @@
 </head>
 <body>
     <h1>Concert Locations</h1>
-    <ul>
-        {{range .Locations}}
-        <li>{{.}}</li>
-        {{end}}
-    </ul>
+        <ul>
+            <li>{{range .Locations}}</li>
+            
+            <li>{{.}}</li>
+            
+           <li> {{end}}</li>
+        </ul>
 </body>
 </html>

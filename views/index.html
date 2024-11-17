@@ -20,12 +20,8 @@
         <div class="card">
             <a href="/artist/{{.Id}}">
                 <img src="{{.Image}}" alt="{{.Name}}">
+                <h2>{{.Name}}</h2>
             </a>
-            <h2>{{.Name}}</h2>
-            <p><strong>Members:</strong></p>
-            <p class="members">{{range .Members}}{{.}}, {{end}}</p>
-            <p><strong>Creation Date:</strong> {{.CreationDate}}</p>
-            <p><strong>First Album:</strong> {{.FirstAlbum}}</p>
         </div>
         {{end}}
     </div>

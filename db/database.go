@@ -24,6 +24,6 @@ type Relation struct {
     } `json:"index"`
 }
 
-type Dates struct {
+type Date struct {
     Dates []string `json:"dates"`
 }
