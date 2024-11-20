@@ -22,16 +22,3 @@ func GetArtists() ([]db.Artist, error) {
 	}
 	return artists, nil
 }
-
-func GetArtist(id string) (db.Artist, error) {
-	var artist db.Artist
-	response, err := http.Get(config.ArtistsAPIURL + "/" + id)
-	if err != nil  {
-		return db.Artist{} , err
-	}
-	defer response.Body.Close()
-	if err := json.NewDecoder(response.Body).Decode(&artist) ; err != nil {
-		return db.Artist{}, err
-	}
-	return artist, nil
-}

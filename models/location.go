@@ -8,7 +8,8 @@ import (
 )
 
 
-func GetLocations() ([]string, error) {
+func GetLocations(id int) ([]string, error) {
+	
 	var locations db.Location
 	response, err:= http.Get(config.LocationsAPIURL)
 	if err != nil {
@@ -18,5 +19,5 @@ func GetLocations() ([]string, error) {
 	if err := json.NewDecoder(response.Body).Decode(&locations) ; err != nil {
 		return nil, err
 	}
-	return locations.Locations, nil
+	return locations.Index[id].Location, nil
 }

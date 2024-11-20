@@ -12,13 +12,13 @@ func ArtistController(w http.ResponseWriter, r *http.Request) {
 		http.Error(w,  "Failed to parse template: "+err.Error(), http.StatusInternalServerError)
 		return
 	}
-	tmpl, err1  := template.ParseFiles("views/index.html")
+	res, err1  := template.ParseFiles("views/index.html")
 	if err1 != nil {
 		http.Error(w, "Failed to parse template: "+err1.Error(), http.StatusInternalServerError)
 		return
 	}
 	
-	if err := tmpl.Execute(w, artist) ; err!= nil {
+	if err := res.Execute(w, artist) ; err!= nil {
         http.Error(w,  "Failed to render template: "+err.Error(), http.StatusInternalServerError)
         return
     }
