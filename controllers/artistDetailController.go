@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"encoding/json"
-	"fmt"
 	"groupie_tracker/db"
 	"groupie_tracker/models"
 	"html/template"
@@ -65,9 +64,7 @@ func ArtistDetailController(w http.ResponseWriter, r *http.Request) {
 		FirstAlbum:   artist.FirstAlbum,
 		Locations:    strings.Join(locations.Location,", "),
 		ConcertDates: strings.Join(dates.Dates,", "),
-		Relations:   strings.Join(relations.DatesLocations["date"],", "),
+		Relation:     relations.DatesLocations,
 	}
-	fmt.Println(artistDetail)
-
 	res.Execute(w, artistDetail)
 }

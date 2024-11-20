@@ -3,37 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../static/style/cards.css">
+    <title>Artist Details</title>
+    <link rel="stylesheet" href="../static/style/details.css">
 </head>
 <body>
-    <div class="card">
-        <a href="/artist/{{.Id}}">
-            <img src="{{.Image}}" alt="{{.Name}}">
-        </a>
-        <h2>{{.Name}}</h2>
-        <p><strong>Creation Date:</strong> {{.CreationDate}}</p>
-        <p><strong>First Album:</strong> {{.FirstAlbum}}</p>
-        <table>
-            <tr>
-                <th>Members </th>
-            </tr>
-            {{range .Members}}
-            <tr>
-                <td>{{.}}</td>
-            </tr>
-            {{end}}
-        </table>
-        <table>
-            <tr>
-                <th>Locations </th>
-            </tr>
-            {{range .Locations}}
-            <tr>
-                <td>{{.}}</td>
-            </tr>
-            {{end}}
-        </table>
+    <div class="main-container">
+        <!-- Artist Image and Name Section -->
+        <div class="artist-header">
+            <img src="{{.Image}}" alt="{{.Name}}" class="artist-image">
+            <div class="artist-info">
+                <h1>{{.Name}}</h1>
+                <p class="creation-date"><strong>Creation Date:</strong> {{.CreationDate}}</p>
+                <p class="first-album"><strong>First Album:</strong> {{.FirstAlbum}}</p>
+            </div>
+        </div>
+
+        <!-- Members Section -->
+        <section class="members-section">
+            <h2>Band Members</h2>
+            <ul class="members-list">
+                {{range .Members}}
+                <li>{{.}}</li>
+                {{end}}
+            </ul>
+        </section>
+
+        <!-- Concert Information Section -->
+        <section class="concert-info">
+            <h2>Concert Information</h2>
+            <table class="concert-table">
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>Dates</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range $location, $dates := .Relation}}
+                    <tr>
+                        <td>{{ $location }}</td>
+                        <td>
+                            {{range $index, $date := $dates}}
+                               {{ $date }}<br>
+                            {{end}}
+                        </td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Back Link -->
+        <div class="back-link">
+            <a href="/" class="back-button">Go Back</a>
+        </div>
     </div>
 </body>
 </html>

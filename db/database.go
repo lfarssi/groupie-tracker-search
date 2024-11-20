@@ -10,7 +10,7 @@ package db
         Locations    string   `json:"locations"`     
         ConcertDates string   `json:"concertDates"`  
         Relations    string  `json:"relations"`
-        
+        Relation map[string][]string 
     }
 
 
@@ -20,7 +20,6 @@ type Location struct {
 }
 
 type Relation struct {
-
         Id            int       `json:"id"`
         DatesLocations map[string][]string `json:"datesLocations"`
 
