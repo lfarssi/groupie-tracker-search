@@ -4,18 +4,11 @@ import (
 	"groupie_tracker/models"
 	"html/template"
 	"net/http"
-	"strconv"
 )
 
 func LocationController(w http.ResponseWriter, r *http.Request) {
-	idStr := r.PathValue("id")
-	id, err := strconv.Atoi(idStr)
-	if err != nil {
-		http.Error(w, "Invalid Location ID", http.StatusBadRequest)
-		return
-	}
 
-	locations, err := models.GetLocations(id)
+	locations, err := models.GetLocations()
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

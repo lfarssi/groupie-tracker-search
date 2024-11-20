@@ -5,18 +5,12 @@ import (
 	"groupie_tracker/models"
 	"html/template"
 	"net/http"
-	"strconv"
+
 )
 
 func DateController(w http.ResponseWriter, r *http.Request) {
-	idStr := r.PathValue("id")
-	id, err := strconv.Atoi(idStr)
-	if err != nil {
-		http.Error(w, "Invalid Date ID", http.StatusBadRequest)
-		return
-	}
 
-	dates, err := models.GetDates(id)
+	dates, err := models.GetDates()
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

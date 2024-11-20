@@ -8,7 +8,7 @@ import (
 )
 
 
-func GetDates(id int) ([]string, error) {
+func GetDates() ([]string, error) {
 	var date db.Date
 	response, err:= http.Get(config.DatesAPIURL)
 	if err != nil {
@@ -18,5 +18,5 @@ func GetDates(id int) ([]string, error) {
 	if err := json.NewDecoder(response.Body).Decode(&date) ; err != nil {
 		return nil, err
 	}
-	return date.Index[id].Dates, nil
+	return date.Dates, nil
 }
