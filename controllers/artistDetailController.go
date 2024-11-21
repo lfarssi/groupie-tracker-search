@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"encoding/json"
+	"groupie_tracker/database"
 	"groupie_tracker/models"
 	"html/template"
 	"net/http"
@@ -33,14 +34,13 @@ func ArtistDetailController(w http.ResponseWriter, r *http.Request) {
 		ErrorController(w, r, http.StatusBadRequest)
 		return
 	}
-	
+	if id < 0 || id > len(database.Artists) {
+		ErrorController(w, r, http.StatusNotFound)
+		return
+	}
 	artist, err := models.ArtistById(id)
 	if err != nil {
 		ErrorController(w, r, http.StatusInternalServerError)
-		return
-	}
-	if id < 0 || id > 52 {
-		ErrorController(w, r, http.StatusNotFound)
 		return
 	}
 
@@ -50,7 +50,7 @@ func ArtistDetailController(w http.ResponseWriter, r *http.Request) {
 
 	channels := make(chan error, 3)
 	var wg sync.WaitGroup
-	wg.Add(3) 
+	wg.Add(3)
 
 	go func() {
 		defer wg.Done()
@@ -66,8 +66,8 @@ func ArtistDetailController(w http.ResponseWriter, r *http.Request) {
 	}()
 
 	go func() {
-		wg.Wait()      
-		close(channels) 
+		wg.Wait()
+		close(channels)
 	}()
 
 	for err := range channels {
