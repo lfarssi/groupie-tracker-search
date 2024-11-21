@@ -2,12 +2,12 @@ package controllers
 
 import (
 	"encoding/json"
-	"groupie_tracker/db"
 	"groupie_tracker/models"
 	"html/template"
 	"net/http"
 	"strconv"
 	"strings"
+	"sync"
 )
 
 func fetchData(url string, target interface{}) error {
@@ -16,46 +16,73 @@ func fetchData(url string, target interface{}) error {
 		return err
 	}
 	defer response.Body.Close()
-	return json.NewDecoder(response.Body).Decode(target)
+	if err = json.NewDecoder(response.Body).Decode(target); err != nil {
+		return err
+	}
+	return nil
 }
 
 func ArtistDetailController(w http.ResponseWriter, r *http.Request) {
-
+	if r.Method != "GET" {
+		ErrorController(w, r, http.StatusMethodNotAllowed)
+		return
+	}
 	idStr := r.PathValue("id")
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
 		ErrorController(w, r, http.StatusBadRequest)
 		return
 	}
+	
 	artist, err := models.ArtistById(id)
 	if err != nil {
 		ErrorController(w, r, http.StatusInternalServerError)
 		return
 	}
-	var locations db.Location
-	if err := fetchData(artist.Locations, &locations); err != nil {
-		ErrorController(w, r, http.StatusInternalServerError)
+	if id < 0 || id > 52 {
+		ErrorController(w, r, http.StatusNotFound)
 		return
 	}
-	var dates db.Date
-	if err := fetchData(artist.ConcertDates, &dates); err != nil {
-		ErrorController(w, r, http.StatusInternalServerError)
-		return
+
+	var locations models.Location
+	var dates models.Date
+	var relations models.Relation
+
+	channels := make(chan error, 3)
+	var wg sync.WaitGroup
+	wg.Add(3) 
+
+	go func() {
+		defer wg.Done()
+		channels <- fetchData(artist.Locations, &locations)
+	}()
+	go func() {
+		defer wg.Done()
+		channels <- fetchData(artist.ConcertDates, &dates)
+	}()
+	go func() {
+		defer wg.Done()
+		channels <- fetchData(artist.Relations, &relations)
+	}()
+
+	go func() {
+		wg.Wait()      
+		close(channels) 
+	}()
+
+	for err := range channels {
+		if err != nil {
+			ErrorController(w, r, http.StatusInternalServerError)
+			return
+		}
 	}
-	var relations db.Relation
-	if err := fetchData(artist.Relations, &relations); err != nil {
-		ErrorController(w, r, http.StatusInternalServerError)
-		return
-	}
+
 	res, err := template.ParseFiles("views/detail.html")
 	if err != nil {
 		ErrorController(w, r, http.StatusInternalServerError)
 		return
 	}
-	// Extract datesLocations from relations
-
-	// Combine all data into a single struct
-	artistDetail := db.Artist{
+	artistDetail := models.Artist{
 		Id:           artist.Id,
 		Name:         artist.Name,
 		Image:        artist.Image,

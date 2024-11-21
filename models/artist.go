@@ -3,14 +3,25 @@ package models
 import (
 	"encoding/json"
 	"groupie_tracker/config"
-	"groupie_tracker/db"
 	"net/http"
 )
 
 
+type Artist struct {
+	Id          int      `json:"id"`
+	Name         string   `json:"name"`
+	Members      []string `json:"members"`
+	Image        string   `json:"image"`
+	CreationDate int      `json:"creationDate"`
+	FirstAlbum   string   `json:"firstAlbum"`
+	Locations    string   `json:"locations"`     
+	ConcertDates string   `json:"concertDates"`  
+	Relations    string  `json:"relations"`
+	Relation map[string][]string 
+}
 
-func GetArtists() ([]db.Artist, error) {
-	var artists []db.Artist
+func GetArtists() ([]Artist, error) {
+	var artists []Artist
 	response, err := http.Get(config.ArtistsAPIURL)
 	if err != nil {
 		return nil, err

@@ -22,9 +22,11 @@
         <section class="members-section">
             <h2>Band Members</h2>
             <ul class="members-list">
-                {{range .Members}}
+                <li>{{range .Members}}</li>
                 <li>{{.}}</li>
-                {{end}}
+                <li>
+                    {{end}}
+                </li>
             </ul>
         </section>
 

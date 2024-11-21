@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"groupie_tracker/db"
+	"groupie_tracker/models"
 	"html/template"
 	"net/http"
 )
@@ -12,12 +12,12 @@ func ErrorController(w http.ResponseWriter, r *http.Request, statusCode int) {
 		http.Error(w,"500 | Internal Server Error", http.StatusInternalServerError)
 		return
 	}
-	errorTyep := db.Error{
+	errorType := models.Error{
 		StatusCode: statusCode,
 		Message: http.StatusText(statusCode),
 	}
 	w.WriteHeader(statusCode)
-	if err:= tmp.Execute(w, errorTyep) ; err != nil {	
+	if err:= tmp.Execute(w, errorType) ; err != nil {	
 		http.Error(w, "500 | Internal Server Error", http.StatusInternalServerError)
 		return
 	}
