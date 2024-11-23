@@ -6,24 +6,24 @@ import (
 	"net/http"
 )
 
-func ArtistController(w http.ResponseWriter, r *http.Request) {
+func DateController(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "GET" {
 		ErrorController(w, r, http.StatusMethodNotAllowed)
 		return
 	}
-	if r.URL.Path != "/artists" {
+	if r.URL.Path != "/dates" {
 		ErrorController(w, r, http.StatusNotFound)
 		return
 	}
 
-	artists := database.Artists
-	res, err1 := template.ParseFiles("views/artists.html")
+	dates := database.Dates
+	res, err1 := template.ParseFiles("views/dates.html")
 	if err1 != nil {
 		ErrorController(w, r, http.StatusInternalServerError)
 		return
 	}
 
-	if err := res.Execute(w, artists); err != nil {
+	if err := res.Execute(w, dates); err != nil {
 		ErrorController(w, r, http.StatusInternalServerError)
 		return
 	}
