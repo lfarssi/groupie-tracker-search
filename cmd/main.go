@@ -4,7 +4,6 @@ import (
 	"groupie_tracker/database"
 	"groupie_tracker/models"
 	"groupie_tracker/routes"
-	"log"
 	"os"
 	"strconv"
 )
