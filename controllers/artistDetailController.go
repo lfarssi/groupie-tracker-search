@@ -50,7 +50,7 @@ func ArtistDetailController(w http.ResponseWriter, r *http.Request) {
 
 	channels := make(chan error, 3)
 	var wg sync.WaitGroup
-	wg.Add(3)
+	wg.Add(3) 
 
 	go func() {
 		defer wg.Done()
@@ -66,8 +66,8 @@ func ArtistDetailController(w http.ResponseWriter, r *http.Request) {
 	}()
 
 	go func() {
-		wg.Wait()
-		close(channels)
+		wg.Wait()      
+		close(channels) 
 	}()
 
 	for err := range channels {
