@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <div class="card">
                     <a href="/artist/${artist.id}">
                         <img src="${artist.image}" alt="${artist.name}">
-                        <h2>${artist.name}</h2>
+                        <h2>${artist.name}  </h2>
+                        <p>${artist.Type}</p>
                     </a>
                 </div>
             `

@@ -1,10 +1,12 @@
 package main
 
 import (
-	"groupie_tracker/routes"
 	"groupie_tracker/database"
 	"groupie_tracker/models"
+	"groupie_tracker/routes"
+	"log"
 	"os"
+	"strconv"
 )
 
 func main() {
@@ -13,8 +15,17 @@ func main() {
 	}
 	var err error
 	database.Artists, err = models.GetArtists()
-	if err!= nil {
-        panic(err)
-    }
-		routes.Router()
+	for i := 0; i < len(database.Artists); i++ {
+		artist := &database.Artists[i]
+		if len(artist.Members) == 1 {
+			artist.Type = "Artist"
+		} else {
+			artist.Type = "Group of " + strconv.Itoa(len(artist.Members))
+		}
+	}
+	log.Println((database.Artists[0].Type))
+	if err != nil {
+		panic(err)
+	}
+	routes.Router()
 }
