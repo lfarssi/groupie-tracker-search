@@ -1,7 +1,7 @@
 package main
 
 import (
-	"groupie_tracker/Routes"
+	"groupie_tracker/routes"
 	"groupie_tracker/database"
 	"groupie_tracker/models"
 	"os"

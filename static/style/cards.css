@@ -47,3 +47,8 @@ body {
 .card a {
     text-decoration: none;
 }
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
