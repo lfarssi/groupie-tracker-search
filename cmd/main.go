@@ -23,7 +23,6 @@ func main() {
 			artist.Type = "Group of " + strconv.Itoa(len(artist.Members))
 		}
 	}
-	log.Println((database.Artists[0].Type))
 	if err != nil {
 		panic(err)
 	}
