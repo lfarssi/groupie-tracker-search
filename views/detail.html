@@ -1,64 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Artist Details</title>
-    <link rel="stylesheet" href="../static/style/details.css">
-</head>
-<body>
-    <div class="main-container">
-        <!-- Artist Image and Name Section -->
-        <div class="artist-header">
-            <img src="{{.Image}}" alt="{{.Name}}" class="artist-image">
-            <div class="artist-info">
-                <h1>{{.Name}}</h1>
-                <p class="creation-date"><strong>Creation Date:</strong> {{.CreationDate}}</p>
-                <p class="first-album"><strong>First Album:</strong> {{.FirstAlbum}}</p>
-            </div>
+    <link rel="stylesheet" href="../static/style/parent.css" />
+    <link rel="stylesheet" href="../static/style/details.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="header-content">
+        <a href="/">
+          <h1>Groupie Tracker</h1>
+        </a>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="/artists" class="active">Artists</a></li>
+          <li><a href="/locations">Locations</a></li>
+          <li><a href="/dates">Dates</a></li>
+          <li><a href="/relations">Relations</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-content" id="main-content">
+      <!-- Artist Image and Name Section -->
+      <div class="artist-header">
+        <img src="{{.Image}}" alt="{{.Name}}" class="artist-image" />
+        <div class="artist-info">
+          <h1>{{.Name}}</h1>
+          <p class="creation-date">
+            <strong>Creation Date:</strong> {{.CreationDate}}
+          </p>
+          <p class="first-album">
+            <strong>First Album:</strong> {{.FirstAlbum}}
+          </p>
         </div>
+      </div>
 
-        <!-- Members Section -->
-        <section class="members-section">
-            <h2>Band Members</h2>
-            <ul class="members-list">
-                <li>{{range .Members}}</li>
-                <li>{{.}}</li>
-                <li>
-                    {{end}}
-                </li>
-            </ul>
-        </section>
+      <!-- Members Section -->
+      <section class="members-section">
+        <h2>Band Members</h2>
+        <ul class="members-list">
+          <li>{{range .Members}}</li>
+          <li>{{.}}</li>
+          <li>{{end}}</li>
+        </ul>
+      </section>
 
-        <!-- Concert Information Section -->
-        <section class="concert-info">
-            <h2>Concert Information</h2>
-            <table class="concert-table">
-                <thead>
-                    <tr>
-                        <th>Location</th>
-                        <th>Dates</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{range $location, $dates := .Relation}}
-                    <tr>
-                        <td>{{ $location }}</td>
-                        <td>
-                            {{range $index, $date := $dates}}
-                               {{ $date }}<br>
-                            {{end}}
-                        </td>
-                    </tr>
-                    {{end}}
-                </tbody>
-            </table>
-        </section>
+      <!-- Concert Information Section -->
+      <section class="concert-info">
+        <h2>Concert Information</h2>
+        <table class="concert-table">
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>Dates</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{range $location, $dates := .Relation}}
+            <tr>
+              <td>{{ $location }}</td>
+              <td>
+                {{range $index, $date := $dates}} {{ $date }}<br />
+                {{end}}
+              </td>
+            </tr>
+            {{end}}
+          </tbody>
+        </table>
+      </section>
 
-        <!-- Back Link -->
-        <div class="back-link">
-            <a href="/" class="back-button">Go Back</a>
-        </div>
-    </div>
-</body>
+      <!-- Back Link -->
+      <div class="back-link">
+        <a href="/artists" class="back-button">Go Back</a>
+      </div>
+    </main>
+
+    <footer class="main-footer">
+      <p>&copy; 2024 Groupie Tracker | All Rights Reserved</p>
+    </footer>
+  </body>
 </html>

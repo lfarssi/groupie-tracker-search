@@ -4,16 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../static/style/parent.css">
     <link rel="stylesheet" href="../static/style/cards.css">
 </head>
 <body>
-    <h1>Artists</h1>   
-    <div class="container" id="artistContainer">
-        
-    </div>
-    <script id="artistData" type="application/json">
-        {{ .}}
-    </script>
-    <script src="../static/js/artists.js"></script>
+    <header class="main-header">
+        <div class="header-content">
+            <a href="/">
+                <h1>Groupie Tracker</h1>
+            </a>      
+        </div>
+        <div>
+            <h1 class="header-content">Artists</h1>   
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="/artists" class="active">Artists</a></li>
+                <li><a href="/locations">Locations</a></li>
+                <li><a href="/dates">Dates</a></li>
+                <li><a href="/relations" >Relations</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container" id="artistContainer">
+            
+        </div>
+        <script id="artistData" type="application/json">
+            {{ .}}
+        </script>
+        <script src="../static/js/artists.js"></script>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2024 Groupie Tracker | All Rights Reserved</p>
+    </footer>
+   
 </body>
 </html>

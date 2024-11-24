@@ -1,0 +1,187 @@
+/* Resetting some styles for better control */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Full body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8; /* Light background with a slightly blue tint */
+    color: #333; /* Darker text for readability */
+    line-height: 1.6;
+}
+
+/* Header Section */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(45deg, #ff6f61, #00bcd4); /* Gradient of coral and teal */
+    color: white;
+    padding: 20px 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.main-header:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+.main-header h1 {
+    font-size: 3rem;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.main-header h1:hover {
+    color: #ffffff; /* Highlight header text on hover */
+}
+
+.main-header p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    transition: opacity 0.3s ease;
+}
+
+.main-header p:hover {
+    opacity: 0.8; /* Reduce opacity on hover */
+}
+
+/* Navigation Bar */
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 30px;
+}
+a{
+    text-decoration: none;
+}
+
+.main-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease-in-out;
+}
+
+.main-nav ul li a:hover {
+    background-color: #f44336; /* Bold red on hover */
+    color: white;
+    transform: scale(1.1); /* Grow effect on hover */
+}
+
+.main-nav ul li a.active {
+    background-color: #ff5722; /* Active link color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Glow effect for active link */
+}
+
+.main-nav ul li a:focus {
+    outline: none;
+}
+#main-content{
+    max-width: 800px;
+}
+
+/* Main Content Section */
+.main-content {
+    text-align: center;
+    padding: 50px 20px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.main-content:hover {
+    transform: translateY(-5px); /* Slight lifting effect for content */
+}
+
+.main-content h2 {
+    font-size: 2.5rem;
+    color: #ff5722; /* Lively coral color */
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-out;
+}
+
+.main-content h2:hover {
+    transform: scale(1.05); /* Slight zoom effect for the title */
+}
+
+.main-content p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #555;
+    opacity: 0.9;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.main-content p:hover {
+    opacity: 1; /* Slight fade effect on hover */
+}
+
+/* Footer Section */
+.main-footer {
+    background: linear-gradient(45deg, #00bcd4, #ff6f61); /* Gradient of teal and coral */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.main-footer:hover {
+    background: linear-gradient(45deg, #ff5722, #ff4081); /* Hover gradient with a pink shade */
+}
+
+.main-footer p {
+    font-size: 1rem;
+    transition: font-size 0.3s ease-in-out;
+}
+
+.main-footer p:hover {
+    font-size: 1.1rem; /* Grow effect on hover for footer text */
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Add responsiveness: Stack elements vertically on smaller screens */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-nav {
+        margin-top: 20px;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+    }
+
+    .main-nav ul li {
+        margin: 10px 0;
+    }
+
+    .main-content {
+        padding: 30px 15px;
+    }
+}

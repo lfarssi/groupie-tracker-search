@@ -22,7 +22,6 @@ func LocationController(w http.ResponseWriter, r *http.Request) {
 		ErrorController(w, r, http.StatusInternalServerError)
 		return
 	}
-
 	if err := res.Execute(w, locations); err != nil {
 		ErrorController(w, r, http.StatusInternalServerError)
 		return
