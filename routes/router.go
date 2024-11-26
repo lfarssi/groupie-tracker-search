@@ -7,11 +7,9 @@ import (
 )
 
 func Router() {
-	fs := http.FileServer(http.Dir("static"))
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
-
 	http.HandleFunc("/", controllers.HomeController)
 	http.HandleFunc("/artists", controllers.ArtistController)
+	http.HandleFunc("/static/", controllers.StaticController)
 	http.HandleFunc("/locations", controllers.LocationController)
 	http.HandleFunc("/relations", controllers.RelationController)
 	http.HandleFunc("/dates", controllers.DateController)

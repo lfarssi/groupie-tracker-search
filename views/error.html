@@ -3,23 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/style/parent.css" />
-    <link rel="stylesheet" href="../static/style/err.css" />
+    <link rel="stylesheet" href="/static/style/err.css" />
+    <link rel="stylesheet" href="/static/style/parent.css" />
     <title>Document</title>
   </head>
   <body>
     <header class="main-header">
-      <div class="header-content">
+      <section class="header-content">
         <a href="/">
           <h1>Groupie Tracker</h1>
         </a>
-      </div>
+      </section>
       <nav class="main-nav">
         <ul>
-          <li><a href="/artists" class="active">Artists</a></li>
-          <li><a href="/locations">Locations</a></li>
-          <li><a href="/dates">Dates</a></li>
-          <li><a href="/relations">Relations</a></li>
+          <li><a class="link" href="/artists" class="active">Artists</a></li>
+          <li><a class="link" href="/locations">Locations</a></li>
+          <li><a class="link" href="/dates">Dates</a></li>
+          <li><a class="link" href="/relations">Relations</a></li>
         </ul>
       </nav>
     </header>
@@ -28,7 +28,7 @@
       <div>
         <h1>{{.StatusCode}} => {{.Message}}</h1>
         <div>
-          <a href="/aritsts">go Home</a>
+          <a class="link" href="/aritsts">go to artists</a>
         </div>
       </div>
     </main>
