@@ -14,11 +14,7 @@
           <h1>Groupie Tracker</h1>
         </a>
       </div>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="/artists" class="active">Artists</a></li>
-        </ul>
-      </nav>
+
     </header>
 
     <main class="main-content" id="main-content">
@@ -45,25 +41,26 @@
           <li>{{end}}</li>
         </ul>
       </section>
-            <!-- Locations Section -->
-      <!-- <section>
+
+      <section class="locations-section">
         <h2>Locations</h2>
         <ul class="locations-list">
-          <li>{{range.Locations}}</li>
+          <li>{{range .Locations}}</li>
           <li>{{.}}</li>
           <li>{{end}}</li>
         </ul>
-       </section> -->
-
-            <!-- Dates Section -->
-      <!-- <section>
+    </section>
+    
+    <section class="dates-section">
         <h2>Dates</h2>
         <ul class="dates-list">
-          <li>{{range.Dates}}</li>
+          <li>{{range .ConcertDates}}</li>
           <li>{{.}}</li>
           <li>{{end}}</li>
         </ul>
-      </section> -->
+    </section>
+    
+
       <!-- Concert Information Section -->
       <section class="concert-info">
         <h2>Concert Information</h2>

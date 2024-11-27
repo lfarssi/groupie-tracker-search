@@ -65,6 +65,67 @@ body {
     color: #555;
     margin: 5px 0;
 }
+/* Locations Section */
+.locations-section {
+    margin-bottom: 40px;
+}
+
+.locations-section h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.locations-list {
+    list-style: none;
+    padding: 0;
+}
+
+.locations-list li {
+    font-size: 18px;
+    color: #555;
+    margin: 5px 0;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.locations-list li:hover {
+    background-color: #f2f2f2;
+}
+
+/* Dates Section */
+.dates-section {
+    margin-bottom: 40px;
+}
+
+.dates-section h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.dates-list {
+    list-style: none;
+    padding: 0;
+}
+
+.dates-list li {
+    font-size: 18px;
+    color: #555;
+    margin: 5px 0;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.dates-list li:hover {
+    background-color: #f2f2f2;
+}
 
 
 /* Concert Information section */
