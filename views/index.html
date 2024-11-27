@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Groupie Tracker</title>
     <link rel="stylesheet" href="/static/style/parent.css" />
+    <link rel="stylesheet" href="/static/style/cards.css">
+
   </head>
   <body>
     <header class="main-header">
@@ -15,10 +17,6 @@
       </div>
       <nav class="main-nav">
         <ul>
-          <li><a href="/artists" class="active">Artists</a></li>
-          <li><a href="/locations">Locations</a></li>
-          <li><a href="/dates">Dates</a></li>
-          <li><a href="/relations">Relations</a></li>
           <li>
             <form action="">
               <input type="text" placeholder="search">
@@ -28,13 +26,16 @@
       </nav>
     </header>
 
-    <main class="main-content" id="main-content">
-      <h2>Welcome to Groupie Tracker</h2>
-      <p>
-        Discover new artists, locations, and events happening worldwide. Stay
-        connected!
-      </p>
-    </main>
+    
+    <main class="main-content">
+      <div class="container" id="artistContainer">
+          
+      </div>
+      <script id="artistData" type="application/json">
+          {{ .}}
+      </script>
+      <script src="../static/js/artists.js"></script>
+  </main>
 
     <footer class="main-footer">
       <p>&copy; 2024 Groupie Tracker | All Rights Reserved</p>
