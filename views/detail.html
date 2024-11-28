@@ -19,6 +19,10 @@
     </header>
 
     <main class="main-content" id="main-content">
+      <!-- Back Link -->
+      <div class="back-link">
+        <a href="/" class="back-button"><i class="fa-solid fa-house"></i></a>
+      </div>
       <!-- Artist Image and Name Section -->
       <div class="artist-header">
         <img src="{{.Image}}" alt="{{.Name}}" class="artist-image" />
@@ -33,56 +37,38 @@
           
         </div>
 
-      <!-- Back Link -->
-      <div class="back-link">
-        <a href="/" class="back-button"><i class="fa-solid fa-arrow-left"></i></a>
-      </div>
+      
       </div>
 
       <!-- Members Section -->
-      <section class="members-section">
+      <section class="members-section ">
         <h2>Band Members</h2>
         <ul class="members-list">
           <li>{{range .Members}}</li>
-          <li>{{.}}</li>
+          <li class="item-section">{{.}}</li>
           <li>{{end}}</li>
         </ul>
       </section>
-      <section class="table-sections">
-        <!-- Locations Table -->
-        <div class="locations-section">
-          <h2>Locations</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Location</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{{.Locations}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <section class="locations-section">
+        <h2>Locations</h2>
+        <ul class="locations-list ">
+          <li>{{range .Location}}</li>
+            <li class="item-section">{{.}}</li>
+            <li>{{end}}</li>
+        </ul>
+    </section>
       
         <!-- Dates Table -->
-        <div class="dates-section">
+        <section class="dates-section ">
           <h2>Dates</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Concert Dates</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{{.ConcertDates}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      
+          <ul class="dates-list ">
+            <li>{{range .ConcertDate}}</li>
+              <li class="item-section">{{.}}</li>
+              <li>{{end}}</li>
+          </ul>
+      </section>
+        <section class="table-sections ">
+
         <!-- Concert Info Table -->
         <div class="concert-info">
           <h2>Concert Information</h2>

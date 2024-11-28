@@ -7,7 +7,6 @@ import (
 	"html/template"
 	"net/http"
 	"strconv"
-	"strings"
 	"sync"
 )
 
@@ -89,8 +88,8 @@ func ArtistDetailController(w http.ResponseWriter, r *http.Request) {
 		Members:      artist.Members,
 		CreationDate: artist.CreationDate,
 		FirstAlbum:   artist.FirstAlbum,
-		Locations:    strings.Join(locations.Location, ", "),
-		ConcertDates: strings.Join(dates.Dates, ", "),
+		Location:    locations.Location,
+		ConcertDate: dates.Dates,
 		Relation:     relations.DatesLocations,
 	}
 	res.Execute(w, artistDetail)
