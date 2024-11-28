@@ -1,7 +1,6 @@
 /* General body styling */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: powderblue;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,10 +11,11 @@ body {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    color: white ;
+    backdrop-filter: blur(5px);
 }
+
 
 /* Artist header with image and name */
 .artist-header {
@@ -37,13 +37,12 @@ body {
 
 .artist-info h1 {
     font-size: 32px;
-    color: #333;
     margin: 0;
 }
 
 .artist-info p {
     font-size: 16px;
-    color: #555;
+    color: white;
     margin-top: 10px;
 }
 
@@ -55,12 +54,11 @@ body {
     border: #555 solid 1px;
     border-radius: 10px;
     padding: 0 10px;
-    background: powderblue;
+    background: black;
   }
 
 .members-section h2 {
     font-size: 24px;
-    color: #333;
     margin-bottom: 10px;
 }
 
@@ -74,7 +72,6 @@ body {
 
 .members-list li {
     font-size: 18px;
-    color: #555;
     margin: 5px 0;
 }
 /* Locations Section */
@@ -84,7 +81,6 @@ body {
 
 .locations-section h2 {
     font-size: 24px;
-    color: #333;
     margin-bottom: 10px;
 }
 
@@ -103,7 +99,6 @@ body {
 
 .dates-section h2 {
     font-size: 24px;
-    color: #333;
     margin-bottom: 10px;
 }
 
@@ -143,11 +138,11 @@ body {
 }
 
 .table-sections th {
-    background-color: #f2f2f2;
+    background-color: #3b3b3b;
 }
 
 .table-sections tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #3b3b3b;
 }
 
 .table-sections h2 {
@@ -171,8 +166,8 @@ body {
 }
 
 .back-button {
-    background-color: #007BFF;
-    color: white;
+    background-color:white;
+    color: black;
     padding: 12px 24px;
     text-decoration: none;
     font-size: 18px;
@@ -181,5 +176,5 @@ body {
 }
 
 .back-button:hover {
-    background-color: #0056b3;
+    background-color: rgb(238, 237, 237);
 }

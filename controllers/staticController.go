@@ -15,7 +15,7 @@ func StaticController(w http.ResponseWriter, r *http.Request) {
 		for _, folder := range folders {
 			files, _ := os.ReadDir("static/" + folder.Name())
 			for _, file := range files {
-				if r.URL.Path == "/static/style/"+file.Name() || r.URL.Path == "/static/js/"+file.Name() {
+				if r.URL.Path == "/static/style/"+file.Name() || r.URL.Path == "/static/js/"+file.Name() || r.URL.Path == "/static/images/"+file.Name() {
 					fs := http.Dir("static")
 					http.StripPrefix("/static/", http.FileServer(fs)).ServeHTTP(w, r)
 					return

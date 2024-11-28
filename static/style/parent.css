@@ -8,8 +8,8 @@
 /* Full body styling */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: powderblue; 
-    color: #333; /* Darker text for readability */
+    background-image: url("/static/images/blackBackground.jpg"); 
+    color: #333; 
     line-height: 1.6;
 }
 
@@ -18,16 +18,10 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(45deg, #ff6f61, #00bcd4); /* Gradient of coral and teal */
     color: white;
     padding: 20px 40px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
 }
 
-.main-header:hover {
-    transform: translateY(-5px); /* Slight lift effect on hover */
-}
 
 .main-header h1 {
     font-size: 3rem;
@@ -36,19 +30,11 @@ body {
 }
 
 .main-header h1:hover {
-    color: #ffffff; /* Highlight header text on hover */
+    color: aqua; 
 }
 
-.main-header p {
-    font-size: 1.2rem;
-    font-weight: 300;
-    transition: opacity 0.3s ease;
-}
-
-.main-header p:hover {
-    opacity: 0.8; /* Reduce opacity on hover */
-}
 a{
+    color: white;
     text-decoration: none;
 }
 
@@ -61,21 +47,15 @@ a{
     text-align: center;
     padding: 50px 20px;
     margin: 0 auto;
-    background-color: powderblue;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
 }
 
-.main-content:hover {
-    transform: translateY(-5px); /* Slight lifting effect for content */
-}
 
 
 
-.main-content h2:hover {
-    transform: scale(1.05); /* Slight zoom effect for the title */
-}
+
 
 .main-content p {
     font-size: 1.3rem;
@@ -91,28 +71,21 @@ a{
 
 /* Footer Section */
 .main-footer {
-    background: linear-gradient(45deg, #00bcd4, #ff6f61); /* Gradient of teal and coral */
     color: white;
     text-align: center;
     padding: 20px 0;
-    position: fixed;
-    bottom: 0;
     width: 100%;
     transition: background-color 0.3s ease-in-out;
 }
 
-.main-footer:hover {
-    background: linear-gradient(45deg, #ff5722, #ff4081); /* Hover gradient with a pink shade */
-}
+
 
 .main-footer p {
     font-size: 1rem;
     transition: font-size 0.3s ease-in-out;
 }
 
-.main-footer p:hover {
-    font-size: 1.1rem; /* Grow effect on hover for footer text */
-}
+
 
 /* Smooth Scroll */
 html {
