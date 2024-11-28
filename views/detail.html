@@ -41,49 +41,70 @@
           <li>{{end}}</li>
         </ul>
       </section>
-
-      <section class="locations-section">
-        <h2>Locations</h2>
-        <ul class="locations-list">
-          <li>{{.Locations}}</li>
-        </ul>
-    </section>
-    
-    <section class="dates-section">
-        <h2>Dates</h2>
-        <ul class="dates-list">
-          <li>{{.ConcertDates}}</li>
-        </ul>
-    </section>
-    
-
-      <!-- Concert Information Section -->
-      <section class="concert-info">
-        <h2>Concert Information</h2>
-        <table class="concert-table">
-          <thead>
-            <tr>
-              <th>Location</th>
-              <th>Dates</th>
-            </tr>
-          </thead>
-          <tbody>
-            {{range $location, $dates := .Relation}}
-            <tr>
-              <td>{{ $location }}</td>
-              <td>
-                {{range $index, $date := $dates}} {{ $date }}<br />
-                {{end}}
-              </td>
-            </tr>
-            {{end}}
-          </tbody>
-        </table>
+      <section class="table-sections">
+        <!-- Locations Table -->
+        <div class="locations-section">
+          <h2>Locations</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{.Locations}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      
+        <!-- Dates Table -->
+        <div class="dates-section">
+          <h2>Dates</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Concert Dates</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{.ConcertDates}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      
+        <!-- Concert Info Table -->
+        <div class="concert-info">
+          <h2>Concert Information</h2>
+          <table class="concert-table">
+            <thead>
+              <tr>
+                <th>Location</th>
+                <th>Dates</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{range $location, $dates := .Relation}}
+              <tr>
+                <td>{{ $location }}</td>
+                <td>
+                  {{range $index, $date := $dates}} {{ $date }}<br />
+                  {{end}}
+                </td>
+              </tr>
+              {{end}}
+            </tbody>
+          </table>
+        </div>
       </section>
-
+      
+      
       <!-- Back Link -->
       <div class="back-link">
-        <a href="/artists" class="back-button">Go Back</a>
+        <a href="/" class="back-button">Go Back</a>
       </div>
     </main>
 
