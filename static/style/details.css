@@ -1,14 +1,14 @@
 /* General body styling */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
+    background-color: powderblue;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 /* Main container */
-.main-container {
+.main-content {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
@@ -179,7 +179,8 @@ body {
 /* Back Link Button */
 .back-link {
     text-align: center;
-    margin-top: 40px;
+    margin-left: 300px;
+    margin-bottom: 200px;
 }
 
 .back-button {
