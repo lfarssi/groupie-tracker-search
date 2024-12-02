@@ -9,6 +9,8 @@
 body {
     font-family: 'Arial', sans-serif;
     background-image: url("/static/images/blackBackground.jpg"); 
+    background-size: cover;
+    background-repeat: no-repeat;
     color: #333; 
     line-height: 1.6;
 }
@@ -30,7 +32,7 @@ body {
 }
 
 .main-header h1:hover {
-    color: aqua; 
+    color: rgb(233, 230, 230); 
 }
 
 a{
