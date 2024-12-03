@@ -8,11 +8,12 @@
 /* Full body styling */
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url("/static/images/blackBackground.jpg"); 
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #333; 
-    line-height: 1.6;
+    background-color: #1A1A2E   ;
+    /* background-image: url("/static/images/blackBackground.jpg");  */
+    /* background-size: cover;
+    background-repeat: no-repeat; */
+    color: white;
+     line-height: 1.6;
 }
 
 /* Header Section */
@@ -20,7 +21,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
     padding: 20px 40px;
 }
 
@@ -73,19 +73,15 @@ a{
 
 /* Footer Section */
 .main-footer {
-    color: white;
     text-align: center;
     padding: 20px 0;
     width: 100%;
-    transition: background-color 0.3s ease-in-out;
+    position: ticky;
 }
 
 
 
-.main-footer p {
-    font-size: 1rem;
-    transition: font-size 0.3s ease-in-out;
-}
+
 
 
 
