@@ -6,22 +6,24 @@ import (
 	"net/http"
 )
 
-
 type Location struct {
-	Id       int    `json:"id"`
+	Id       int      `json:"id"`
 	Location []string `json:"locations"`
 }
+type Locations struct {
+	Index []Location `json:"index"`
+}
 
-func GetLocation() ([]Location, error) {
-	var location []Location
+func GetLocation() (Locations, error) {
+	var locations Locations
 	response, err := http.Get(config.LocationsAPIURL)
 	if err != nil {
-		return nil, err
+		return Locations{}, err
 	}
 	defer response.Body.Close()
 
-	if err := json.NewDecoder(response.Body).Decode(&location); err != nil {
-		return nil, err
+	if err := json.NewDecoder(response.Body).Decode(&locations); err != nil {
+		return Locations{}, err
 	}
-	return location, nil
+	return locations, nil
 }

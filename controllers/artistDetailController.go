@@ -33,7 +33,7 @@ func ArtistDetailController(w http.ResponseWriter, r *http.Request) {
 		ErrorController(w, r, http.StatusBadRequest)
 		return
 	}
-	if id < 0 || id > len(database.Artists) {
+	if id <= 0 || id > len(database.Artists) {
 		ErrorController(w, r, http.StatusNotFound)
 		return
 	}

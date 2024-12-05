@@ -14,6 +14,8 @@ func main() {
 	}
 	var err error
 	database.Artists, err = models.GetArtists()
+	database.Locations, err = models.GetLocation()
+	database.Dates, err = models.GetDate()
 	for i := 0; i < len(database.Artists); i++ {
 		artist := &database.Artists[i]
 		if len(artist.Members) == 1 {

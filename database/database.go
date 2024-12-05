@@ -4,7 +4,7 @@ import "groupie_tracker/models"
 
 var (
 	Artists   []models.Artist
-	Locations []models.Location
-	Dates     []models.Date
+	Locations models.Locations
+	Dates     models.Dates
 	Relations []models.Relation
 )

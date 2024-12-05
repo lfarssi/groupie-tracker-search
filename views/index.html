@@ -15,7 +15,19 @@
           <h1>Groupie Tracker</h1>
         </a>
       </div>
-      
+      <form action="/" method="GET">
+        <input
+          type="text"
+          id="search"
+          name="search"
+          list="suggestions"
+          placeholder="Search for an artist"
+        />
+        <datalist id="suggestions">
+          
+        </datalist>
+        <button type="submit" class="search">Search</button>
+      </form>
     </header>
 
     
@@ -26,7 +38,7 @@
       <script id="artistData" type="application/json">
           {{ .}}
       </script>
-      <script src="../static/js/artists.js"></script>
+      <script src="/static/js/artists.js"></script>
   </main>
 
     <footer class="main-footer">

@@ -7,20 +7,23 @@ import (
 )
 
 type Date struct {
-	Id int `json:"id"`
+	Id    int      `json:"id"`
 	Dates []string `json:"dates"`
 }
+type Dates struct {
+	Index []Date `json:"index"`
+}
 
-func GetDate() ([]Date, error) {
-	var date []Date
+func GetDate() (Dates, error) {
+	var dates Dates
 	response, err := http.Get(config.DatesAPIURL)
 	if err != nil {
-		return nil, err
+		return Dates{}, err
 	}
 	defer response.Body.Close()
 
-	if err := json.NewDecoder(response.Body).Decode(&date); err != nil {
-		return nil, err
+	if err := json.NewDecoder(response.Body).Decode(&dates); err != nil {
+		return Dates{}, err
 	}
-	return date, nil
+	return dates, nil
 }
