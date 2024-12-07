@@ -3,11 +3,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #1A1A2E   ;
-}
+ }
 
 /* Full body styling */
 body {
+    background: linear-gradient(
+        135deg, 
+        #1e293b, /* Dark navy for a techy feel */
+        #3b82f6, /* Bright blue for energy */
+        #22d3ee, /* Cyan for creativity */
+        #a855f7  /* Purple for innovation */
+      );
+  
+      /* Smooth transition between colors */
+      background-size: 400% 400%;
+      animation: gradient-animation 10s ease infinite;
     font-family: 'Arial', sans-serif;
     color: white;
      line-height: 1.6;
@@ -32,6 +42,7 @@ body {
 .search {
     padding: 10px 20px;
     border-radius: 25px;
+    background-color: #1a1a39;
     color: white; 
     font-size: 16px;
     outline: none;

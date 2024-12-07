@@ -17,19 +17,25 @@
           <h1>Groupie Tracker</h1>
         </a>
       </div>
-      <form action="/" method="GET">
-        <input
-          type="text"
-          id="search"
-          name="search"
-          list="suggestions"
-          placeholder="Search for an artist"
-        />
-        <datalist id="suggestions">
-          
-        </datalist>
-        <button type="submit" class="search"><i class="fa-solid fa-magnifying-glass"></i> </button>
-      </form>
+
+        <form action="/" id="searchForm" method="GET">
+          <input
+            type="text"
+            id="search"
+            name="search"
+            list="suggestions"
+            placeholder="Search for an artist"
+            required
+          />
+          <datalist id="suggestions">
+            
+          </datalist>
+          <button type="submit" class="search"><i class="fa-solid fa-magnifying-glass"></i> </button>
+        </form>
+   
+
+  
+     
     </header>
 
     
@@ -41,6 +47,17 @@
           {{ .}}
       </script>
       <script src="/static/js/artists.js"></script>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const form = document.getElementById("searchForm");
+          const queryString = window.location.search;
+          if (queryString.includes("search=")) {
+            form.style.display = "none"; // Hide the form if there is a search query
+          } else {
+            form.style.display = "block"; // Show the form otherwise
+          }
+        });
+      </script>
   </main>
 
     <footer class="main-footer">

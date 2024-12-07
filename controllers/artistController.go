@@ -31,6 +31,7 @@ func ArtistController(w http.ResponseWriter, r *http.Request) {
 			ErrorController(w, r, http.StatusInternalServerError)
 			return
 		}
+
 		res.Execute(w, data)
 	} else {
 		res, err1 := template.ParseFiles("views/index.html")
@@ -38,7 +39,7 @@ func ArtistController(w http.ResponseWriter, r *http.Request) {
 			ErrorController(w, r, http.StatusInternalServerError)
 			return
 		}
-	
+		
 		if err := res.Execute(w, artists); err != nil {
 			ErrorController(w, r, http.StatusInternalServerError)
 			return

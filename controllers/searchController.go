@@ -46,15 +46,13 @@ func Search(artists []models.Artist, search string) (any, error) {
 
 		// Check if any location matches the search criteria
 		for _, location := range artist.Locationsr {
-
 			if strings.Contains(strings.ToLower(location), search) {
-				println(location, search)
 				searched = append(searched, artist)
 				uniqueArtists[artist.Id] = struct{}{}
 				break
 			}
 		}
 	}
-
+	
 	return searched, nil
 }

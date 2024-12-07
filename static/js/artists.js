@@ -3,7 +3,8 @@ const suggestion = document.getElementById("suggestions");
 // Get artist data from the embedded JSON script tag asynchronously
 const artistDataScript = document.getElementById("artistData");
 const artists = JSON.parse(artistDataScript.textContent);
-
+const uniqueLocations = new Set();
+const uniqueDates = new Set();  
 console.log(artists);
 
 artists.forEach((artist) => {
@@ -30,19 +31,26 @@ artists.forEach((artist) => {
   });
 
   artist.Locationsr.forEach((city) => {
-    const locations = document.createElement("option");
-    locations.value = city;
-    locations.innerHTML = "- Location";
-    suggestion.appendChild(locations);
+    if (!uniqueLocations.has(city)) {
+      uniqueLocations.add(city);
+      const locations = document.createElement("option");
+      locations.value = city;
+      locations.innerHTML = "- Location";
+      suggestion.appendChild(locations);
+    }
   });
 
   artist.ConcertDatesr.forEach((date) => {
-    const dates = document.createElement("option");
-    dates.value = date;
-    dates.innerHTML = "- Date";
-    suggestion.appendChild(dates);
+    if (!uniqueDates.has(date)) {
+      uniqueDates.add(date);
+      const dates = document.createElement("option");
+      dates.value = date;
+      dates.innerHTML = "- Date";
+      suggestion.appendChild(dates);
+    }
   });
 });
+
 // Render artists in the container
 artistContainer.innerHTML = artists
   .map(
