@@ -12,10 +12,9 @@ func main() {
 	if len(os.Args) != 1 {
 		os.Exit(1)
 	}
-	var err error
-	database.Artists, err = models.GetArtists()
-	database.Locations, err = models.GetLocation()
-	database.Dates, err = models.GetDate()
+	database.Artists, _ = models.GetArtists()
+	database.Locations, _ = models.GetLocation()
+	database.Dates, _ = models.GetDate()
 	for i := 0; i < len(database.Artists); i++ {
 		artist := &database.Artists[i]
 		if len(artist.Members) == 1 {
@@ -23,9 +22,6 @@ func main() {
 		} else {
 			artist.Type = "Group of " + strconv.Itoa(len(artist.Members))
 		}
-	}
-	if err != nil {
-		panic(err)
 	}
 	routes.Router()
 }

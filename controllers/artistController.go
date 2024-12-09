@@ -4,6 +4,7 @@ import (
 	"groupie_tracker/database"
 	"html/template"
 	"net/http"
+	"strings"
 )
 
 func ArtistController(w http.ResponseWriter, r *http.Request) {
@@ -25,6 +26,10 @@ func ArtistController(w http.ResponseWriter, r *http.Request) {
 	}
 	search := r.URL.Query().Get("search")
 	if len(search) > 0 {
+		if strings.Contains(search, "/") {
+			ErrorController(w, r, http.StatusBadRequest)
+			return
+		}
 		data, _ := Search(artists, search)
 		res, err1 := template.ParseFiles("views/index.html")
 		if err1 != nil {

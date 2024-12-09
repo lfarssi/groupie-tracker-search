@@ -51,6 +51,7 @@ artists.forEach((artist) => {
   });
 });
 
+
 // Render artists in the container
 artistContainer.innerHTML = artists
   .map(
@@ -67,3 +68,10 @@ artistContainer.innerHTML = artists
             `
   )
   .join("");
+  if (artists.length == 0 ) {
+    artistContainer.innerHTML = `
+    <div class="card">
+        <h2>No artists found</h2>
+    </div>
+    `;
+  }

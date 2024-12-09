@@ -91,16 +91,13 @@ a{
 .main-content {
     text-align: center;
     padding: 50px 20px;
+    min-height: 70vh;
+
     margin: 0 auto;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
 }
-
-
-
-transition: all 0.3s ease-in-out;
-
 
 
 .main-content p {
