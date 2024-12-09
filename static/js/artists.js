@@ -4,7 +4,10 @@ const suggestion = document.getElementById("suggestions");
 const artistDataScript = document.getElementById("artistData");
 const artists = JSON.parse(artistDataScript.textContent);
 const uniqueLocations = new Set();
-const uniqueDates = new Set();  
+const uniqueMember = new Set();
+const uniqueCreationDate = new Set();
+const uniqueFirstAlbum = new Set();
+const uniqueDates = new Set();
 console.log(artists);
 
 artists.forEach((artist) => {
@@ -13,21 +16,29 @@ artists.forEach((artist) => {
   artistName.innerHTML = "- Artist/Band";
   suggestion.appendChild(artistName);
 
-  const firstAlbum = document.createElement("option");
-  firstAlbum.value = artist.firstAlbum;
-  firstAlbum.innerHTML = "- First Album";
-  suggestion.appendChild(firstAlbum);
-
-  const creationDate = document.createElement("option");
-  creationDate.value = artist.creationDate;
-  creationDate.innerHTML = "- Creation Date";
-  suggestion.appendChild(creationDate);
+  if (!uniqueFirstAlbum.has(artist.firstAlbum)) {
+    uniqueFirstAlbum.add(artist.firstAlbum);
+    const firstAlbum = document.createElement("option");
+    firstAlbum.value = artist.firstAlbum;
+    firstAlbum.innerHTML = "- First Album";
+    suggestion.appendChild(firstAlbum);
+  }
+  if (!uniqueCreationDate.has(artist.creationDate)) {
+    uniqueCreationDate.add(artist.creationDate);
+    const creationDate = document.createElement("option");
+    creationDate.value = artist.creationDate;
+    creationDate.innerHTML = "- Creation Date";
+    suggestion.appendChild(creationDate);
+  }
 
   artist.members.forEach((member) => {
+    if (!uniqueMember.has(member)) {
+      uniqueMember.add(member);
     const members = document.createElement("option");
     members.value = member;
     members.innerHTML = "- Member";
     suggestion.appendChild(members);
+    }
   });
 
   artist.Locationsr.forEach((city) => {
@@ -45,12 +56,11 @@ artists.forEach((artist) => {
       uniqueDates.add(date);
       const dates = document.createElement("option");
       dates.value = date;
-      dates.innerHTML = "- Date";
+      dates.innerHTML = "- Concert Date";
       suggestion.appendChild(dates);
     }
   });
 });
-
 
 // Render artists in the container
 artistContainer.innerHTML = artists
@@ -68,10 +78,10 @@ artistContainer.innerHTML = artists
             `
   )
   .join("");
-  if (artists.length == 0 ) {
-    artistContainer.innerHTML = `
+if (artists.length == 0) {
+  artistContainer.innerHTML = `
     <div class="card">
         <h2>No artists found</h2>
     </div>
     `;
-  }
+}
